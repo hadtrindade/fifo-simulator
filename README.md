@@ -1,2 +1,2 @@
 # fifo-simulator
-Algoritmo escalonamento primeiro-a-entrar-primeiro-a-sair (FIFO)
+GUI para o algoritmo de escalonamento primeiro-a-entrar-primeiro-a-sair (FIFO)

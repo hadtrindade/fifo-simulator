@@ -253,7 +253,7 @@
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(252, 175, 62);</string>
+         <string notr="true"/>
         </property>
         <property name="frameShape">
          <enum>QFrame::NoFrame</enum>
@@ -276,7 +276,7 @@
 }</string>
            </property>
            <property name="text">
-            <string>P1</string>
+            <string/>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -330,7 +330,7 @@ background-position: center;</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(173, 127, 168);</string>
+         <string notr="true"/>
         </property>
         <property name="frameShape">
          <enum>QFrame::NoFrame</enum>
@@ -353,7 +353,7 @@ background-position: center;</string>
 }</string>
            </property>
            <property name="text">
-            <string>P2</string>
+            <string/>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -372,8 +372,7 @@ background-position: center;</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(252, 175, 62);
-background-color: rgb(115, 210, 22);</string>
+         <string notr="true"/>
         </property>
         <property name="frameShape">
          <enum>QFrame::NoFrame</enum>
@@ -396,7 +395,7 @@ background-color: rgb(115, 210, 22);</string>
 }</string>
            </property>
            <property name="text">
-            <string>P3</string>
+            <string/>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -482,12 +481,12 @@ QPushButton:pressed {
          <rect>
           <x>10</x>
           <y>120</y>
-          <width>331</width>
+          <width>221</width>
           <height>17</height>
          </rect>
         </property>
         <property name="text">
-         <string>By: Pau de dar em doido.</string>
+         <string>By: Pau de dar em doido Team.</string>
         </property>
        </widget>
       </widget>

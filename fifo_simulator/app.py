@@ -1,4 +1,5 @@
 import sys
+from typing import List, NoReturn, Tuple
 from PySide2 import QtWidgets
 from ui_fifo_simulator import Ui_FifoSimulator
 from fifo import queue_fifo, get_full_queue, processing
@@ -16,7 +17,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
         self.button_start_stop.clicked.connect(lambda: self.start_process())
         self.init_app_fifo()
 
-    def start_process(self):
+    def start_process(self) -> NoReturn:
+        """Método para start/stop, da Thread de consumo de processos.
+        Return: NoReturn
+        """
         if not self.start:
             self.button_start_stop.setText("Stop")
             self.start = True
@@ -35,7 +39,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
             self.start = False
             self.init_app_fifo()
 
-    def set_queue(self, list_queue):
+    def set_queue(self, list_queue: Tuple) -> NoReturn:
+        """Método para atualização da lista de processos e style.
+        Arguments: - list_queue [tuple]
+        Return: NoReturn
+        """
         queue_process_label = [self.label_p1, self.label_p2, self.label_p3]
         queue_process_frame = [self.queue_p1, self.queue_p2, self.queue_p3]
         count = 0
@@ -49,7 +57,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
             queue_process_frame[count].setStyleSheet(style_sheet)
             count += 1
 
-    def set_output(self, value):
+    def set_output(self, value: int) -> NoReturn:
+        """Método paara atualização do output dos processos.
+        Arguments: - value [int]
+        Return: NoReturn
+        """
         tasks = [
             "image: url(:/herryporco/img/harry-porco.png);",
             "image: url(:/cafe/img/cafe.gif);",
@@ -57,17 +69,21 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
             "image: url(:/msword/img/ms_word.gif);",
             "image: url(:/musica/img/musica.jpg);",
             "image: url(:/viralata/img/vira-lara-caramelo.jpg);",
-            ]
+        ]
         style_sheet = (
             "QFrame {"
             f"{tasks[value]}"
             "background-repeat: no-repeat;"
             "background-position: center;"
             "}"
-            )
+        )
         self.result_process.setStyleSheet(style_sheet)
 
-    def progress_bar_value(self, value):
+    def progress_bar_value(self, value: List) -> NoReturn:
+        """Método para atialização da barra de progresso.
+        Arguments: - value [list]
+        Return: NoReturn
+        """
         progress = (100 - value[0]) / 100.0
         stop_1 = str(progress - 0.001)
         stop_2 = str(progress)
@@ -80,7 +96,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
         )
         self.circular_progress.setStyleSheet(style_sheet)
 
-    def init_app_fifo(self):
+    def init_app_fifo(self) -> NoReturn:
+        """Método para inicio do App.
+        Return: NoReturn
+        """
         self.progress_bar_value([0, "136, 138, 133"])
         self.label_cpu_percentage.setText("0%")
         self.result_process.setStyleSheet("")

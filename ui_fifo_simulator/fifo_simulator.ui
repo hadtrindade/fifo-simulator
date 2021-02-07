@@ -195,17 +195,21 @@
            <rect>
             <x>100</x>
             <y>40</y>
-            <width>67</width>
-            <height>31</height>
+            <width>71</width>
+            <height>41</height>
            </rect>
           </property>
           <property name="font">
            <font>
-            <pointsize>14</pointsize>
+            <pointsize>25</pointsize>
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: none;</string>
+           <string notr="true">QLabel{
+	background-color: none;
+	font-size: 25pt;
+	color: rgb(85, 87, 83);
+}</string>
           </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#555753;&quot;&gt;CPU &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -217,22 +221,27 @@
          <widget class="QLabel" name="label_cpu_percentage">
           <property name="geometry">
            <rect>
-            <x>90</x>
-            <y>110</y>
-            <width>81</width>
-            <height>61</height>
+            <x>70</x>
+            <y>100</y>
+            <width>121</width>
+            <height>81</height>
            </rect>
           </property>
           <property name="font">
            <font>
-            <pointsize>14</pointsize>
+            <pointsize>40</pointsize>
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: none;</string>
+           <string notr="true">QLabel{
+	background-color: none;
+	font-size: 40pt;
+	color: rgb(85, 87, 83);
+}
+</string>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt; color:#555753;&quot;&gt;0%&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>0%</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -295,10 +304,7 @@
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(114, 159, 207);
-background-image: url(:/folder/img/cil-folder.png);
-background-repeat: no-repeat;
-background-position: center;</string>
+         <string notr="true"/>
         </property>
         <property name="frameShape">
          <enum>QFrame::NoFrame</enum>

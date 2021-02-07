@@ -1,4 +1,5 @@
 import sys
+from random import shuffle
 from typing import List, NoReturn, Tuple
 from PySide2 import QtWidgets
 from ui_fifo_simulator import Ui_FifoSimulator
@@ -62,17 +63,26 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
         Arguments: - value [int]
         Return: NoReturn
         """
-        tasks = [
+        images = [
             "image: url(:/herryporco/img/harry-porco.png);",
             "image: url(:/cafe/img/cafe.gif);",
             "image: url(:/histograma/img/histograma.png);",
             "image: url(:/msword/img/ms_word.gif);",
             "image: url(:/musica/img/musica.jpg);",
             "image: url(:/viralata/img/vira-lara-caramelo.jpg);",
+            "image: url(:/facebook/img/facebook.jpg);",
+            "image: url(:/img1/img/mobral.jpeg);",
+            "image: url(:/img3/img/instagram.jpeg);",
+            "image: url(:/img2/img/bozo.jpg);",
+            "image: url(:/odio/img/odio.jpeg);",
+            "image: url(:/scrock/img/scrockson.jpeg);",
+            "image: url(:/topson/img/topson.jpeg);",
+            "image: url(:/bozo2/img/bozo2.jpeg);",
         ]
+        shuffle(images)
         style_sheet = (
             "QFrame {"
-            f"{tasks[value]}"
+            f"{images[value]}"
             "background-repeat: no-repeat;"
             "background-position: center;"
             "}"

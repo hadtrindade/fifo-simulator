@@ -1,5 +1,20 @@
 <RCC>
-  <qresource prefix="folder">
-    <file>img/cil-folder.png</file>
+  <qresource prefix="musica">
+    <file>img/musica.jpg</file>
+  </qresource>
+  <qresource prefix="herryporco">
+    <file>img/harry-porco.png</file>
+  </qresource>
+  <qresource prefix="viralata">
+    <file>img/vira-lara-caramelo.jpg</file>
+  </qresource>
+  <qresource prefix="cafe">
+    <file>img/cafe.gif</file>
+  </qresource>
+  <qresource prefix="msword">
+    <file>img/ms_word.gif</file>
+  </qresource>
+  <qresource prefix="histograma">
+    <file>img/histograma.png</file>
   </qresource>
 </RCC>

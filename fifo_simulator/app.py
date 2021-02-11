@@ -3,7 +3,7 @@ from random import shuffle
 from typing import List, NoReturn, Tuple
 from PySide2 import QtWidgets
 from ui_fifo_simulator import Ui_FifoSimulator
-from fifo import queue_fifo, get_full_queue, processing
+from fifo import processing
 from worker import Worker
 
 
@@ -11,8 +11,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
         self.setupUi(self)
-        self.queue_process = get_full_queue()
-        self.queue = queue_fifo
         self.start = False
         self.worker = None
         self.button_start_stop.clicked.connect(lambda: self.start_process())

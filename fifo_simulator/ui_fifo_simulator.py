@@ -14,6 +14,7 @@ from PySide2.QtWidgets import *
 
 import resourses_rc
 
+
 class Ui_FifoSimulator(object):
     def setupUi(self, FifoSimulator):
         if not FifoSimulator.objectName():
@@ -44,10 +45,11 @@ class Ui_FifoSimulator(object):
         self.label_title = QLabel(self.body_frame)
         self.label_title.setObjectName(u"label_title")
         self.label_title.setGeometry(QRect(230, 20, 340, 51))
-        self.label_title.setStyleSheet(u"background-color: none;\n"
-"")
+        self.label_title.setStyleSheet(u"background-color: none;\n" "")
         self.circular_progress_bar_base = QFrame(self.body_frame)
-        self.circular_progress_bar_base.setObjectName(u"circular_progress_bar_base")
+        self.circular_progress_bar_base.setObjectName(
+            u"circular_progress_bar_base"
+        )
         self.circular_progress_bar_base.setGeometry(QRect(160, 90, 320, 320))
         self.circular_progress_bar_base.setStyleSheet(u"")
         self.circular_progress_bar_base.setFrameShape(QFrame.NoFrame)
@@ -55,29 +57,35 @@ class Ui_FifoSimulator(object):
         self.circular_progress = QFrame(self.circular_progress_bar_base)
         self.circular_progress.setObjectName(u"circular_progress")
         self.circular_progress.setGeometry(QRect(10, 10, 300, 300))
-        self.circular_progress.setStyleSheet(u"QFrame {\n"
-"	border-radius: 150px;\n"
-"	background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:0.749 rgba(211, 215, 207, 0), stop:0.75 rgba(136, 138, 133, 255));\n"
-"}")
+        self.circular_progress.setStyleSheet(
+            u"QFrame {\n"
+            "	border-radius: 150px;\n"
+            "	background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:0.749 rgba(211, 215, 207, 0), stop:0.75 rgba(136, 138, 133, 255));\n"
+            "}"
+        )
         self.circular_progress.setFrameShape(QFrame.StyledPanel)
         self.circular_progress.setFrameShadow(QFrame.Raised)
         self.circular_bg = QFrame(self.circular_progress_bar_base)
         self.circular_bg.setObjectName(u"circular_bg")
         self.circular_bg.setGeometry(QRect(10, 10, 300, 300))
-        self.circular_bg.setStyleSheet(u"QFrame{\n"
-"	border-radius: 150px;\n"
-"	\n"
-"	background-color: rgba(211, 215, 207,120);\n"
-"}")
+        self.circular_bg.setStyleSheet(
+            u"QFrame{\n"
+            "	border-radius: 150px;\n"
+            "	\n"
+            "	background-color: rgba(211, 215, 207,120);\n"
+            "}"
+        )
         self.circular_bg.setFrameShape(QFrame.NoFrame)
         self.circular_bg.setFrameShadow(QFrame.Raised)
         self.container = QFrame(self.circular_progress_bar_base)
         self.container.setObjectName(u"container")
         self.container.setGeometry(QRect(25, 25, 270, 270))
-        self.container.setStyleSheet(u"QFrame {\n"
-"	border-radius: 135px;\n"
-"	background-color: rgb(211, 215, 207);\n"
-"}")
+        self.container.setStyleSheet(
+            u"QFrame {\n"
+            "	border-radius: 135px;\n"
+            "	background-color: rgb(211, 215, 207);\n"
+            "}"
+        )
         self.container.setFrameShape(QFrame.NoFrame)
         self.container.setFrameShadow(QFrame.Raised)
         self.label_cpu = QLabel(self.container)
@@ -86,11 +94,13 @@ class Ui_FifoSimulator(object):
         font = QFont()
         font.setPointSize(25)
         self.label_cpu.setFont(font)
-        self.label_cpu.setStyleSheet(u"QLabel{\n"
-"	background-color: none;\n"
-"	font-size: 25pt;\n"
-"	color: rgb(85, 87, 83);\n"
-"}")
+        self.label_cpu.setStyleSheet(
+            u"QLabel{\n"
+            "	background-color: none;\n"
+            "	font-size: 25pt;\n"
+            "	color: rgb(85, 87, 83);\n"
+            "}"
+        )
         self.label_cpu.setAlignment(Qt.AlignCenter)
         self.label_cpu_percentage = QLabel(self.container)
         self.label_cpu_percentage.setObjectName(u"label_cpu_percentage")
@@ -98,12 +108,14 @@ class Ui_FifoSimulator(object):
         font1 = QFont()
         font1.setPointSize(40)
         self.label_cpu_percentage.setFont(font1)
-        self.label_cpu_percentage.setStyleSheet(u"QLabel{\n"
-"	background-color: none;\n"
-"	font-size: 40pt;\n"
-"	color: rgb(85, 87, 83);\n"
-"}\n"
-"")
+        self.label_cpu_percentage.setStyleSheet(
+            u"QLabel{\n"
+            "	background-color: none;\n"
+            "	font-size: 40pt;\n"
+            "	color: rgb(85, 87, 83);\n"
+            "}\n"
+            ""
+        )
         self.label_cpu_percentage.setAlignment(Qt.AlignCenter)
         self.circular_bg.raise_()
         self.circular_progress.raise_()
@@ -121,10 +133,12 @@ class Ui_FifoSimulator(object):
         font2 = QFont()
         font2.setPointSize(15)
         self.label_p1.setFont(font2)
-        self.label_p1.setStyleSheet(u"QLabel{\n"
-"	color: rgb(85, 87, 83);\n"
-"	background-color: none;\n"
-"}")
+        self.label_p1.setStyleSheet(
+            u"QLabel{\n"
+            "	color: rgb(85, 87, 83);\n"
+            "	background-color: none;\n"
+            "}"
+        )
         self.label_p1.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_2.addWidget(self.label_p1)
@@ -149,10 +163,12 @@ class Ui_FifoSimulator(object):
         self.label_p2 = QLabel(self.queue_p2)
         self.label_p2.setObjectName(u"label_p2")
         self.label_p2.setFont(font2)
-        self.label_p2.setStyleSheet(u"QLabel{\n"
-"	color: rgb(85, 87, 83);\n"
-"	background-color: none;\n"
-"}")
+        self.label_p2.setStyleSheet(
+            u"QLabel{\n"
+            "	color: rgb(85, 87, 83);\n"
+            "	background-color: none;\n"
+            "}"
+        )
         self.label_p2.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_3.addWidget(self.label_p2)
@@ -168,10 +184,12 @@ class Ui_FifoSimulator(object):
         self.label_p3 = QLabel(self.queue_p3)
         self.label_p3.setObjectName(u"label_p3")
         self.label_p3.setFont(font2)
-        self.label_p3.setStyleSheet(u"QLabel{\n"
-"	color: rgb(85, 87, 83);\n"
-"	background-color: none;\n"
-"}")
+        self.label_p3.setStyleSheet(
+            u"QLabel{\n"
+            "	color: rgb(85, 87, 83);\n"
+            "	background-color: none;\n"
+            "}"
+        )
         self.label_p3.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_4.addWidget(self.label_p3)
@@ -182,30 +200,34 @@ class Ui_FifoSimulator(object):
         self.button_start_stop = QPushButton(self.body_frame)
         self.button_start_stop.setObjectName(u"button_start_stop")
         self.button_start_stop.setGeometry(QRect(10, 10, 89, 25))
-        self.button_start_stop.setStyleSheet(u"QPushButton {\n"
-"	color:  rgb(235, 240, 243);\n"
-"	border: 0px solid;\n"
-"	border-radius: 5px;\n"
-"	background-position: center;\n"
-"	background-color: rgb(85, 87, 83);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	border: 2px solid  rgb(235, 240, 243);\n"
-"	\n"
-"	background-color: rgb(85, 87, 83);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"	color: rgb(69, 69, 69);\n"
-"	background-color: rgb(217, 237, 247);\n"
-"}")
+        self.button_start_stop.setStyleSheet(
+            u"QPushButton {\n"
+            "	color:  rgb(235, 240, 243);\n"
+            "	border: 0px solid;\n"
+            "	border-radius: 5px;\n"
+            "	background-position: center;\n"
+            "	background-color: rgb(85, 87, 83);\n"
+            "}\n"
+            "\n"
+            "QPushButton:hover {\n"
+            "	border: 2px solid  rgb(235, 240, 243);\n"
+            "	\n"
+            "	background-color: rgb(85, 87, 83);\n"
+            "}\n"
+            "\n"
+            "QPushButton:pressed {\n"
+            "	color: rgb(69, 69, 69);\n"
+            "	background-color: rgb(217, 237, 247);\n"
+            "}"
+        )
 
         self.verticalLayout.addWidget(self.body_frame)
 
         self.stats_frame = QFrame(self.main_frame)
         self.stats_frame.setObjectName(u"stats_frame")
-        self.stats_frame.setStyleSheet(u"background-color: rgb(211, 215, 207);")
+        self.stats_frame.setStyleSheet(
+            u"background-color: rgb(211, 215, 207);"
+        )
         self.stats_frame.setFrameShape(QFrame.NoFrame)
         self.stats_frame.setFrameShadow(QFrame.Raised)
         self.label_stats = QLabel(self.stats_frame)
@@ -219,19 +241,58 @@ class Ui_FifoSimulator(object):
         self.retranslateUi(FifoSimulator)
 
         QMetaObject.connectSlotsByName(FifoSimulator)
+
     # setupUi
 
     def retranslateUi(self, FifoSimulator):
-        FifoSimulator.setWindowTitle(QCoreApplication.translate("FifoSimulator", u"FIFO Process Simulator", None))
-        self.label_title.setText(QCoreApplication.translate("FifoSimulator", u"<html><head/><body><p align=\"center\"><span style=\" font-size:20pt; font-weight:600; color:#555753;\">FIFO Process Simulator</span></p></body></html>", None))
-        self.label_cpu.setText(QCoreApplication.translate("FifoSimulator", u"<html><head/><body><p><span style=\" font-weight:600; color:#555753;\">CPU </span></p></body></html>", None))
-        self.label_cpu_percentage.setText(QCoreApplication.translate("FifoSimulator", u"0%", None))
+        FifoSimulator.setWindowTitle(
+            QCoreApplication.translate(
+                "FifoSimulator", u"FIFO Process Simulator", None
+            )
+        )
+        self.label_title.setText(
+            QCoreApplication.translate(
+                "FifoSimulator",
+                u'<html><head/><body><p align="center"><span style=" font-size:20pt; font-weight:600; color:#555753;">FIFO Process Simulator</span></p></body></html>',
+                None,
+            )
+        )
+        self.label_cpu.setText(
+            QCoreApplication.translate(
+                "FifoSimulator",
+                u'<html><head/><body><p><span style=" font-weight:600; color:#555753;">CPU </span></p></body></html>',
+                None,
+            )
+        )
+        self.label_cpu_percentage.setText(
+            QCoreApplication.translate("FifoSimulator", u"0%", None)
+        )
         self.label_p1.setText("")
-        self.label_queue.setText(QCoreApplication.translate("FifoSimulator", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#555753;\">Fila de processos:</span></p></body></html>", None))
+        self.label_queue.setText(
+            QCoreApplication.translate(
+                "FifoSimulator",
+                u'<html><head/><body><p align="center"><span style=" font-size:12pt; font-weight:600; color:#555753;">Fila de processos:</span></p></body></html>',
+                None,
+            )
+        )
         self.label_p2.setText("")
         self.label_p3.setText("")
-        self.label_output.setText(QCoreApplication.translate("FifoSimulator", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#555753;\">Saida:</span></p></body></html>", None))
-        self.button_start_stop.setText(QCoreApplication.translate("FifoSimulator", u"Start", None))
-        self.label_stats.setText(QCoreApplication.translate("FifoSimulator", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:600; color:#555753;\">Team:</span></p><p><span style=\" font-size:12pt; font-weight:600; color:#555753;\">Ivo H. Trindade Silva</span></p><p><span style=\" font-size:12pt; font-weight:600; color:#555753;\">Lucas de Mendon\u00e7a Schneider</span></p><p><span style=\" font-size:12pt; font-weight:600; color:#555753;\">Jomilson Franklin Ciriaco</span></p></body></html>", None))
-    # retranslateUi
+        self.label_output.setText(
+            QCoreApplication.translate(
+                "FifoSimulator",
+                u'<html><head/><body><p align="center"><span style=" font-size:12pt; font-weight:600; color:#555753;">Saida:</span></p></body></html>',
+                None,
+            )
+        )
+        self.button_start_stop.setText(
+            QCoreApplication.translate("FifoSimulator", u"Start", None)
+        )
+        self.label_stats.setText(
+            QCoreApplication.translate(
+                "FifoSimulator",
+                u'<html><head/><body><p><span style=" font-size:12pt; font-weight:600; color:#555753;">Team:</span></p><p><span style=" font-size:12pt; font-weight:600; color:#555753;">Ivo H. Trindade Silva</span></p><p><span style=" font-size:12pt; font-weight:600; color:#555753;">Lucas de Mendon\u00e7a Schneider</span></p><p><span style=" font-size:12pt; font-weight:600; color:#555753;">Jomilson Franklin Ciriaco</span></p></body></html>',
+                None,
+            )
+        )
 
+    # retranslateUi

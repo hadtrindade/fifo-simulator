@@ -109,7 +109,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
         Return: NoReturn
         """
         self.progress_bar_value([0, "136, 138, 133"])
-        self.label_cpu_percentage.setText("0%")
+        self.label_cpu_percentage.setText("")
         self.result_process.setStyleSheet("")
         queue_process_label = [self.label_p1, self.label_p2, self.label_p3]
         queue_process_frame = [self.queue_p1, self.queue_p2, self.queue_p3]

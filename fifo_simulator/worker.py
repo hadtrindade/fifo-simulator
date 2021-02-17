@@ -4,8 +4,10 @@ from PySide2.QtCore import QThread, QObject, Signal, Slot
 class SignalsToWorker(QObject):
     list_process = Signal(object)
     progress_signal = Signal(object)
+    progress_signal_process = Signal(object)
+    progress_signal_process_run = Signal(object)
+    progress_signal_process_ready = Signal(object)
     progress_signal_percentage = Signal(object)
-    result_output = Signal(object)
 
 
 class Worker(QThread):
@@ -17,7 +19,15 @@ class Worker(QThread):
         self.signal = SignalsToWorker()
 
         self.kwargs["progress_signal"] = self.signal.progress_signal
-        self.kwargs["result_output"] = self.signal.result_output
+        self.kwargs[
+            "progress_signal_process"
+        ] = self.signal.progress_signal_process
+        self.kwargs[
+            "progress_signal_process_run"
+        ] = self.signal.progress_signal_process_run
+        self.kwargs[
+            "progress_signal_process_ready"
+        ] = self.signal.progress_signal_process_ready
         self.kwargs[
             "progress_signal_percentage"
         ] = self.signal.progress_signal_percentage

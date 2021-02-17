@@ -4,7 +4,7 @@ from random import randint
 from time import sleep
 
 
-queue_fifo = Queue(maxsize=3)
+queue_fifo = Queue(maxsize=7)
 
 
 def get_full_queue() -> List:
@@ -23,8 +23,10 @@ def get_full_queue() -> List:
 def processing(
     progress_signal_percentage: Callable,
     progress_signal: Callable,
+    progress_signal_process: Callable,
     list_process: Callable,
-    result_output: Callable,
+    progress_signal_process_run: Callable,
+    progress_signal_process_ready: Callable,
 ) -> NoReturn:
     """Função responsável pelo processamento e exibição de status do progresso."""
     count = 0
@@ -33,9 +35,11 @@ def processing(
         value = queue_fifo.get()
         for i in range(1, value[0] + 1):
             sleep(0.5)
+            progress_signal_process_run.emit(f"PID{count}")
+            progress_signal_process_ready.emit(f"PID{count+1}")
             progress_signal.emit([(i / value[0] * 100), value[1]])
+            progress_signal_process.emit(round(i / value[0] * 100))
             progress_signal_percentage.emit(
                 str(round(i / value[0] * 100)) + "%"
             )
-        result_output.emit(randint(0, 5))
         count += 1

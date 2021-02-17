@@ -298,13 +298,13 @@ QPushButton:pressed {
          <string>Start</string>
         </property>
        </widget>
-       <widget class="QFrame" name="frame">
+       <widget class="QFrame" name="frame_proc_exec_pronto">
         <property name="geometry">
          <rect>
           <x>370</x>
-          <y>330</y>
+          <y>376</y>
           <width>381</width>
-          <height>77</height>
+          <height>31</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -331,35 +331,67 @@ QPushButton:pressed {
          </property>
          <item>
           <widget class="QLabel" name="label_in_exec">
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(85, 87, 83);
+	font-size: 12pt;
+	font: bold;
+	
+}</string>
+           </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#828282;&quot;&gt;Em Execução: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>Em Execução: </string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_in_exec_p">
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(85, 87, 83);
+	font-size: 12pt;
+	font: bold;
+	
+}</string>
+           </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#828282;&quot;&gt;PX&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>PX</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_ready">
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(85, 87, 83);
+	font-size: 12pt;
+	font: bold;
+	
+}</string>
+           </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#828282;&quot;&gt;Pronto(Próximo): &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>Pronto(Próximo):</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_ready_p">
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	color: rgb(85, 87, 83);
+	font-size: 12pt;
+	font: bold;
+	
+}</string>
+           </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#828282;&quot;&gt;PY&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>PY</string>
            </property>
           </widget>
          </item>
         </layout>
        </widget>
-       <widget class="QProgressBar" name="process_bar">
+       <widget class="QProgressBar" name="process_bar_f0">
         <property name="geometry">
          <rect>
           <x>350</x>
@@ -401,6 +433,405 @@ QProgressBar::chunk {
          <enum>QProgressBar::TopToBottom</enum>
         </property>
        </widget>
+       <widget class="QProgressBar" name="process_bar_f1">
+        <property name="geometry">
+         <rect>
+          <x>410</x>
+          <y>200</y>
+          <width>50</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QProgressBar {
+	color:  rgb(69, 69,69);
+	border: 0px solid;
+	border-radius: 5px;
+	border-style: none;
+	background-position: center;
+	text-align: center;
+	background-color: rgb(115, 210, 22);
+}
+
+QProgressBar::chunk {
+	background-color: rgb(238, 238, 236);
+
+}
+</string>
+        </property>
+        <property name="value">
+         <number>30</number>
+        </property>
+        <property name="textVisible">
+         <bool>false</bool>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>true</bool>
+        </property>
+        <property name="textDirection">
+         <enum>QProgressBar::TopToBottom</enum>
+        </property>
+       </widget>
+       <widget class="QProgressBar" name="process_bar_f2">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>200</y>
+          <width>50</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QProgressBar {
+	color:  rgb(69, 69,69);
+	border: 0px solid;
+	border-radius: 5px;
+	border-style: none;
+	background-position: center;
+	text-align: center;
+	background-color: rgb(115, 210, 22);
+}
+
+QProgressBar::chunk {
+	background-color: rgb(238, 238, 236);
+
+}
+</string>
+        </property>
+        <property name="value">
+         <number>30</number>
+        </property>
+        <property name="textVisible">
+         <bool>false</bool>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>true</bool>
+        </property>
+        <property name="textDirection">
+         <enum>QProgressBar::TopToBottom</enum>
+        </property>
+       </widget>
+       <widget class="QProgressBar" name="process_bar_f3">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>200</y>
+          <width>50</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QProgressBar {
+	color:  rgb(69, 69,69);
+	border: 0px solid;
+	border-radius: 5px;
+	border-style: none;
+	background-position: center;
+	text-align: center;
+	background-color: rgb(115, 210, 22);
+}
+
+QProgressBar::chunk {
+	background-color: rgb(238, 238, 236);
+
+}
+</string>
+        </property>
+        <property name="value">
+         <number>30</number>
+        </property>
+        <property name="textVisible">
+         <bool>false</bool>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>true</bool>
+        </property>
+        <property name="textDirection">
+         <enum>QProgressBar::TopToBottom</enum>
+        </property>
+       </widget>
+       <widget class="QProgressBar" name="process_bar_f4">
+        <property name="geometry">
+         <rect>
+          <x>590</x>
+          <y>200</y>
+          <width>50</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QProgressBar {
+	color:  rgb(69, 69,69);
+	border: 0px solid;
+	border-radius: 5px;
+	border-style: none;
+	background-position: center;
+	text-align: center;
+	background-color: rgb(115, 210, 22);
+}
+
+QProgressBar::chunk {
+	background-color: rgb(238, 238, 236);
+
+}
+</string>
+        </property>
+        <property name="value">
+         <number>30</number>
+        </property>
+        <property name="textVisible">
+         <bool>false</bool>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>true</bool>
+        </property>
+        <property name="textDirection">
+         <enum>QProgressBar::TopToBottom</enum>
+        </property>
+       </widget>
+       <widget class="QProgressBar" name="process_bar_f5">
+        <property name="geometry">
+         <rect>
+          <x>650</x>
+          <y>200</y>
+          <width>50</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QProgressBar {
+	color:  rgb(69, 69,69);
+	border: 0px solid;
+	border-radius: 5px;
+	border-style: none;
+	background-position: center;
+	text-align: center;
+	background-color: rgb(115, 210, 22);
+}
+
+QProgressBar::chunk {
+	background-color: rgb(238, 238, 236);
+
+}
+</string>
+        </property>
+        <property name="value">
+         <number>30</number>
+        </property>
+        <property name="textVisible">
+         <bool>false</bool>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>true</bool>
+        </property>
+        <property name="textDirection">
+         <enum>QProgressBar::TopToBottom</enum>
+        </property>
+       </widget>
+       <widget class="QProgressBar" name="process_bar_f6">
+        <property name="geometry">
+         <rect>
+          <x>710</x>
+          <y>200</y>
+          <width>50</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QProgressBar {
+	color:  rgb(69, 69,69);
+	border: 0px solid;
+	border-radius: 5px;
+	border-style: none;
+	background-position: center;
+	text-align: center;
+	background-color: rgb(115, 210, 22);
+}
+
+QProgressBar::chunk {
+	background-color: rgb(238, 238, 236);
+
+}
+</string>
+        </property>
+        <property name="value">
+         <number>30</number>
+        </property>
+        <property name="textVisible">
+         <bool>false</bool>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>true</bool>
+        </property>
+        <property name="textDirection">
+         <enum>QProgressBar::TopToBottom</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_pid_0">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>330</y>
+          <width>50</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	color: rgb(85, 87, 83);
+	font-size: 11pt;
+	font: bold;
+	
+}</string>
+        </property>
+        <property name="text">
+         <string>PID</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_pid_1">
+        <property name="geometry">
+         <rect>
+          <x>410</x>
+          <y>330</y>
+          <width>50</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	color: rgb(85, 87, 83);
+	font-size: 11pt;
+	font: bold;
+	
+}</string>
+        </property>
+        <property name="text">
+         <string>PID</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_pid_2">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>330</y>
+          <width>50</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	color: rgb(85, 87, 83);
+	font-size: 11pt;
+	font: bold;
+	
+}</string>
+        </property>
+        <property name="text">
+         <string>PID</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_pid_3">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>330</y>
+          <width>50</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	color: rgb(85, 87, 83);
+	font-size: 11pt;
+	font: bold;
+	
+}</string>
+        </property>
+        <property name="text">
+         <string>PID</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_pid_4">
+        <property name="geometry">
+         <rect>
+          <x>590</x>
+          <y>330</y>
+          <width>50</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	color: rgb(85, 87, 83);
+	font-size: 11pt;
+	font: bold;
+	
+}</string>
+        </property>
+        <property name="text">
+         <string>PID</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_pid_5">
+        <property name="geometry">
+         <rect>
+          <x>650</x>
+          <y>330</y>
+          <width>50</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	color: rgb(85, 87, 83);
+	font-size: 11pt;
+	font: bold;
+	
+}</string>
+        </property>
+        <property name="text">
+         <string>PID</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_pid_6">
+        <property name="geometry">
+         <rect>
+          <x>710</x>
+          <y>330</y>
+          <width>50</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	color: rgb(85, 87, 83);
+	font-size: 11pt;
+	font: bold;
+	
+}</string>
+        </property>
+        <property name="text">
+         <string>PID</string>
+        </property>
+       </widget>
       </widget>
      </item>
      <item>
@@ -437,7 +868,13 @@ QProgressBar::chunk {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QLabel {
+         <string notr="true">QGroupBox {
+	
+	color: rgb(46, 52, 54);
+}
+
+
+QLabel {
 	color: rgb(46, 52, 54);
 }</string>
         </property>
@@ -496,7 +933,7 @@ QProgressBar::chunk {
           <string>xxxx</string>
          </property>
         </widget>
-        <widget class="QLabel" name="cpu_idel_value">
+        <widget class="QLabel" name="cpu_idle_value">
          <property name="geometry">
           <rect>
            <x>100</x>
@@ -509,7 +946,7 @@ QProgressBar::chunk {
           <string>xxxx</string>
          </property>
         </widget>
-        <widget class="QLabel" name="cpu_basy_value">
+        <widget class="QLabel" name="cpu_busy_value">
          <property name="geometry">
           <rect>
            <x>100</x>
@@ -533,7 +970,14 @@ QProgressBar::chunk {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QLabel {
+         <string notr="true">QGroupBox {
+	
+	color: rgb(46, 52, 54);
+}
+
+
+
+QLabel {
 	
 	color: rgb(46, 52, 54);
 }</string>
@@ -626,8 +1070,6 @@ QProgressBar::chunk {
    </widget>
   </widget>
  </widget>
- <resources>
-  <include location="resourses.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

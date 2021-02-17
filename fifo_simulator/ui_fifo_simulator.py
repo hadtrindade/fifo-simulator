@@ -12,7 +12,6 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-import resourses_rc
 
 class Ui_FifoSimulator(object):
     def setupUi(self, FifoSimulator):
@@ -132,39 +131,63 @@ class Ui_FifoSimulator(object):
 "	color: rgb(69, 69, 69);\n"
 "	background-color: rgb(217, 237, 247);\n"
 "}")
-        self.frame = QFrame(self.body_frame)
-        self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(370, 330, 381, 77))
-        self.frame.setFrameShape(QFrame.NoFrame)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout = QHBoxLayout(self.frame)
+        self.frame_proc_exec_pronto = QFrame(self.body_frame)
+        self.frame_proc_exec_pronto.setObjectName(u"frame_proc_exec_pronto")
+        self.frame_proc_exec_pronto.setGeometry(QRect(370, 376, 381, 31))
+        self.frame_proc_exec_pronto.setFrameShape(QFrame.NoFrame)
+        self.frame_proc_exec_pronto.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout = QHBoxLayout(self.frame_proc_exec_pronto)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.label_in_exec = QLabel(self.frame)
+        self.label_in_exec = QLabel(self.frame_proc_exec_pronto)
         self.label_in_exec.setObjectName(u"label_in_exec")
+        self.label_in_exec.setStyleSheet(u"QLabel {\n"
+"	color: rgb(85, 87, 83);\n"
+"	font-size: 12pt;\n"
+"	font: bold;\n"
+"	\n"
+"}")
 
         self.horizontalLayout.addWidget(self.label_in_exec)
 
-        self.label_in_exec_p = QLabel(self.frame)
+        self.label_in_exec_p = QLabel(self.frame_proc_exec_pronto)
         self.label_in_exec_p.setObjectName(u"label_in_exec_p")
+        self.label_in_exec_p.setStyleSheet(u"QLabel {\n"
+"	color: rgb(85, 87, 83);\n"
+"	font-size: 12pt;\n"
+"	font: bold;\n"
+"	\n"
+"}")
 
         self.horizontalLayout.addWidget(self.label_in_exec_p)
 
-        self.label_ready = QLabel(self.frame)
+        self.label_ready = QLabel(self.frame_proc_exec_pronto)
         self.label_ready.setObjectName(u"label_ready")
+        self.label_ready.setStyleSheet(u"QLabel {\n"
+"	color: rgb(85, 87, 83);\n"
+"	font-size: 12pt;\n"
+"	font: bold;\n"
+"	\n"
+"}")
 
         self.horizontalLayout.addWidget(self.label_ready)
 
-        self.label_ready_p = QLabel(self.frame)
+        self.label_ready_p = QLabel(self.frame_proc_exec_pronto)
         self.label_ready_p.setObjectName(u"label_ready_p")
+        self.label_ready_p.setStyleSheet(u"QLabel {\n"
+"	color: rgb(85, 87, 83);\n"
+"	font-size: 12pt;\n"
+"	font: bold;\n"
+"	\n"
+"}")
 
         self.horizontalLayout.addWidget(self.label_ready_p)
 
-        self.process_bar = QProgressBar(self.body_frame)
-        self.process_bar.setObjectName(u"process_bar")
-        self.process_bar.setGeometry(QRect(350, 200, 50, 100))
-        self.process_bar.setStyleSheet(u"QProgressBar {\n"
+        self.process_bar_f0 = QProgressBar(self.body_frame)
+        self.process_bar_f0.setObjectName(u"process_bar_f0")
+        self.process_bar_f0.setGeometry(QRect(350, 200, 50, 100))
+        self.process_bar_f0.setStyleSheet(u"QProgressBar {\n"
 "	color:  rgb(69, 69,69);\n"
 "	border: 0px solid;\n"
 "	border-radius: 5px;\n"
@@ -179,11 +202,212 @@ class Ui_FifoSimulator(object):
 "\n"
 "}\n"
 "")
-        self.process_bar.setValue(30)
-        self.process_bar.setTextVisible(False)
-        self.process_bar.setOrientation(Qt.Vertical)
-        self.process_bar.setInvertedAppearance(True)
-        self.process_bar.setTextDirection(QProgressBar.TopToBottom)
+        self.process_bar_f0.setValue(30)
+        self.process_bar_f0.setTextVisible(False)
+        self.process_bar_f0.setOrientation(Qt.Vertical)
+        self.process_bar_f0.setInvertedAppearance(True)
+        self.process_bar_f0.setTextDirection(QProgressBar.TopToBottom)
+        self.process_bar_f1 = QProgressBar(self.body_frame)
+        self.process_bar_f1.setObjectName(u"process_bar_f1")
+        self.process_bar_f1.setGeometry(QRect(410, 200, 50, 100))
+        self.process_bar_f1.setStyleSheet(u"QProgressBar {\n"
+"	color:  rgb(69, 69,69);\n"
+"	border: 0px solid;\n"
+"	border-radius: 5px;\n"
+"	border-style: none;\n"
+"	background-position: center;\n"
+"	text-align: center;\n"
+"	background-color: rgb(115, 210, 22);\n"
+"}\n"
+"\n"
+"QProgressBar::chunk {\n"
+"	background-color: rgb(238, 238, 236);\n"
+"\n"
+"}\n"
+"")
+        self.process_bar_f1.setValue(30)
+        self.process_bar_f1.setTextVisible(False)
+        self.process_bar_f1.setOrientation(Qt.Vertical)
+        self.process_bar_f1.setInvertedAppearance(True)
+        self.process_bar_f1.setTextDirection(QProgressBar.TopToBottom)
+        self.process_bar_f2 = QProgressBar(self.body_frame)
+        self.process_bar_f2.setObjectName(u"process_bar_f2")
+        self.process_bar_f2.setGeometry(QRect(470, 200, 50, 100))
+        self.process_bar_f2.setStyleSheet(u"QProgressBar {\n"
+"	color:  rgb(69, 69,69);\n"
+"	border: 0px solid;\n"
+"	border-radius: 5px;\n"
+"	border-style: none;\n"
+"	background-position: center;\n"
+"	text-align: center;\n"
+"	background-color: rgb(115, 210, 22);\n"
+"}\n"
+"\n"
+"QProgressBar::chunk {\n"
+"	background-color: rgb(238, 238, 236);\n"
+"\n"
+"}\n"
+"")
+        self.process_bar_f2.setValue(30)
+        self.process_bar_f2.setTextVisible(False)
+        self.process_bar_f2.setOrientation(Qt.Vertical)
+        self.process_bar_f2.setInvertedAppearance(True)
+        self.process_bar_f2.setTextDirection(QProgressBar.TopToBottom)
+        self.process_bar_f3 = QProgressBar(self.body_frame)
+        self.process_bar_f3.setObjectName(u"process_bar_f3")
+        self.process_bar_f3.setGeometry(QRect(530, 200, 50, 100))
+        self.process_bar_f3.setStyleSheet(u"QProgressBar {\n"
+"	color:  rgb(69, 69,69);\n"
+"	border: 0px solid;\n"
+"	border-radius: 5px;\n"
+"	border-style: none;\n"
+"	background-position: center;\n"
+"	text-align: center;\n"
+"	background-color: rgb(115, 210, 22);\n"
+"}\n"
+"\n"
+"QProgressBar::chunk {\n"
+"	background-color: rgb(238, 238, 236);\n"
+"\n"
+"}\n"
+"")
+        self.process_bar_f3.setValue(30)
+        self.process_bar_f3.setTextVisible(False)
+        self.process_bar_f3.setOrientation(Qt.Vertical)
+        self.process_bar_f3.setInvertedAppearance(True)
+        self.process_bar_f3.setTextDirection(QProgressBar.TopToBottom)
+        self.process_bar_f4 = QProgressBar(self.body_frame)
+        self.process_bar_f4.setObjectName(u"process_bar_f4")
+        self.process_bar_f4.setGeometry(QRect(590, 200, 50, 100))
+        self.process_bar_f4.setStyleSheet(u"QProgressBar {\n"
+"	color:  rgb(69, 69,69);\n"
+"	border: 0px solid;\n"
+"	border-radius: 5px;\n"
+"	border-style: none;\n"
+"	background-position: center;\n"
+"	text-align: center;\n"
+"	background-color: rgb(115, 210, 22);\n"
+"}\n"
+"\n"
+"QProgressBar::chunk {\n"
+"	background-color: rgb(238, 238, 236);\n"
+"\n"
+"}\n"
+"")
+        self.process_bar_f4.setValue(30)
+        self.process_bar_f4.setTextVisible(False)
+        self.process_bar_f4.setOrientation(Qt.Vertical)
+        self.process_bar_f4.setInvertedAppearance(True)
+        self.process_bar_f4.setTextDirection(QProgressBar.TopToBottom)
+        self.process_bar_f5 = QProgressBar(self.body_frame)
+        self.process_bar_f5.setObjectName(u"process_bar_f5")
+        self.process_bar_f5.setGeometry(QRect(650, 200, 50, 100))
+        self.process_bar_f5.setStyleSheet(u"QProgressBar {\n"
+"	color:  rgb(69, 69,69);\n"
+"	border: 0px solid;\n"
+"	border-radius: 5px;\n"
+"	border-style: none;\n"
+"	background-position: center;\n"
+"	text-align: center;\n"
+"	background-color: rgb(115, 210, 22);\n"
+"}\n"
+"\n"
+"QProgressBar::chunk {\n"
+"	background-color: rgb(238, 238, 236);\n"
+"\n"
+"}\n"
+"")
+        self.process_bar_f5.setValue(30)
+        self.process_bar_f5.setTextVisible(False)
+        self.process_bar_f5.setOrientation(Qt.Vertical)
+        self.process_bar_f5.setInvertedAppearance(True)
+        self.process_bar_f5.setTextDirection(QProgressBar.TopToBottom)
+        self.process_bar_f6 = QProgressBar(self.body_frame)
+        self.process_bar_f6.setObjectName(u"process_bar_f6")
+        self.process_bar_f6.setGeometry(QRect(710, 200, 50, 100))
+        self.process_bar_f6.setStyleSheet(u"QProgressBar {\n"
+"	color:  rgb(69, 69,69);\n"
+"	border: 0px solid;\n"
+"	border-radius: 5px;\n"
+"	border-style: none;\n"
+"	background-position: center;\n"
+"	text-align: center;\n"
+"	background-color: rgb(115, 210, 22);\n"
+"}\n"
+"\n"
+"QProgressBar::chunk {\n"
+"	background-color: rgb(238, 238, 236);\n"
+"\n"
+"}\n"
+"")
+        self.process_bar_f6.setValue(30)
+        self.process_bar_f6.setTextVisible(False)
+        self.process_bar_f6.setOrientation(Qt.Vertical)
+        self.process_bar_f6.setInvertedAppearance(True)
+        self.process_bar_f6.setTextDirection(QProgressBar.TopToBottom)
+        self.label_pid_0 = QLabel(self.body_frame)
+        self.label_pid_0.setObjectName(u"label_pid_0")
+        self.label_pid_0.setGeometry(QRect(350, 330, 50, 17))
+        self.label_pid_0.setStyleSheet(u"QLabel {\n"
+"	color: rgb(85, 87, 83);\n"
+"	font-size: 11pt;\n"
+"	font: bold;\n"
+"	\n"
+"}")
+        self.label_pid_1 = QLabel(self.body_frame)
+        self.label_pid_1.setObjectName(u"label_pid_1")
+        self.label_pid_1.setGeometry(QRect(410, 330, 50, 17))
+        self.label_pid_1.setStyleSheet(u"QLabel {\n"
+"	color: rgb(85, 87, 83);\n"
+"	font-size: 11pt;\n"
+"	font: bold;\n"
+"	\n"
+"}")
+        self.label_pid_2 = QLabel(self.body_frame)
+        self.label_pid_2.setObjectName(u"label_pid_2")
+        self.label_pid_2.setGeometry(QRect(470, 330, 50, 17))
+        self.label_pid_2.setStyleSheet(u"QLabel {\n"
+"	color: rgb(85, 87, 83);\n"
+"	font-size: 11pt;\n"
+"	font: bold;\n"
+"	\n"
+"}")
+        self.label_pid_3 = QLabel(self.body_frame)
+        self.label_pid_3.setObjectName(u"label_pid_3")
+        self.label_pid_3.setGeometry(QRect(530, 330, 50, 17))
+        self.label_pid_3.setStyleSheet(u"QLabel {\n"
+"	color: rgb(85, 87, 83);\n"
+"	font-size: 11pt;\n"
+"	font: bold;\n"
+"	\n"
+"}")
+        self.label_pid_4 = QLabel(self.body_frame)
+        self.label_pid_4.setObjectName(u"label_pid_4")
+        self.label_pid_4.setGeometry(QRect(590, 330, 50, 17))
+        self.label_pid_4.setStyleSheet(u"QLabel {\n"
+"	color: rgb(85, 87, 83);\n"
+"	font-size: 11pt;\n"
+"	font: bold;\n"
+"	\n"
+"}")
+        self.label_pid_5 = QLabel(self.body_frame)
+        self.label_pid_5.setObjectName(u"label_pid_5")
+        self.label_pid_5.setGeometry(QRect(650, 330, 50, 17))
+        self.label_pid_5.setStyleSheet(u"QLabel {\n"
+"	color: rgb(85, 87, 83);\n"
+"	font-size: 11pt;\n"
+"	font: bold;\n"
+"	\n"
+"}")
+        self.label_pid_6 = QLabel(self.body_frame)
+        self.label_pid_6.setObjectName(u"label_pid_6")
+        self.label_pid_6.setGeometry(QRect(710, 330, 50, 16))
+        self.label_pid_6.setStyleSheet(u"QLabel {\n"
+"	color: rgb(85, 87, 83);\n"
+"	font-size: 11pt;\n"
+"	font: bold;\n"
+"	\n"
+"}")
 
         self.verticalLayout.addWidget(self.body_frame)
 
@@ -198,7 +422,13 @@ class Ui_FifoSimulator(object):
         self.group_box_cpu = QGroupBox(self.stats_frame)
         self.group_box_cpu.setObjectName(u"group_box_cpu")
         self.group_box_cpu.setGeometry(QRect(10, 10, 151, 121))
-        self.group_box_cpu.setStyleSheet(u"QLabel {\n"
+        self.group_box_cpu.setStyleSheet(u"QGroupBox {\n"
+"	\n"
+"	color: rgb(46, 52, 54);\n"
+"}\n"
+"\n"
+"\n"
+"QLabel {\n"
 "	color: rgb(46, 52, 54);\n"
 "}")
         self.lavel_cpu_time = QLabel(self.group_box_cpu)
@@ -213,16 +443,23 @@ class Ui_FifoSimulator(object):
         self.cpu_time_value = QLabel(self.group_box_cpu)
         self.cpu_time_value.setObjectName(u"cpu_time_value")
         self.cpu_time_value.setGeometry(QRect(100, 30, 47, 13))
-        self.cpu_idel_value = QLabel(self.group_box_cpu)
-        self.cpu_idel_value.setObjectName(u"cpu_idel_value")
-        self.cpu_idel_value.setGeometry(QRect(100, 50, 47, 13))
-        self.cpu_basy_value = QLabel(self.group_box_cpu)
-        self.cpu_basy_value.setObjectName(u"cpu_basy_value")
-        self.cpu_basy_value.setGeometry(QRect(100, 70, 47, 13))
+        self.cpu_idle_value = QLabel(self.group_box_cpu)
+        self.cpu_idle_value.setObjectName(u"cpu_idle_value")
+        self.cpu_idle_value.setGeometry(QRect(100, 50, 47, 13))
+        self.cpu_busy_value = QLabel(self.group_box_cpu)
+        self.cpu_busy_value.setObjectName(u"cpu_busy_value")
+        self.cpu_busy_value.setGeometry(QRect(100, 70, 47, 13))
         self.group_box_wait = QGroupBox(self.stats_frame)
         self.group_box_wait.setObjectName(u"group_box_wait")
         self.group_box_wait.setGeometry(QRect(180, 10, 151, 121))
-        self.group_box_wait.setStyleSheet(u"QLabel {\n"
+        self.group_box_wait.setStyleSheet(u"QGroupBox {\n"
+"	\n"
+"	color: rgb(46, 52, 54);\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"QLabel {\n"
 "	\n"
 "	color: rgb(46, 52, 54);\n"
 "}")
@@ -261,18 +498,25 @@ class Ui_FifoSimulator(object):
         self.label_cpu_percentage.setText(QCoreApplication.translate("FifoSimulator", u"0%", None))
         self.label_queue.setText(QCoreApplication.translate("FifoSimulator", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#555753;\">Fila de processos:</span></p></body></html>", None))
         self.button_start_stop.setText(QCoreApplication.translate("FifoSimulator", u"Start", None))
-        self.label_in_exec.setText(QCoreApplication.translate("FifoSimulator", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:600; color:#828282;\">Em Execu\u00e7\u00e3o: </span></p></body></html>", None))
-        self.label_in_exec_p.setText(QCoreApplication.translate("FifoSimulator", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:600; color:#828282;\">PX</span></p></body></html>", None))
-        self.label_ready.setText(QCoreApplication.translate("FifoSimulator", u"<html><head/><body><p align=\"right\"><span style=\" font-size:12pt; font-weight:600; color:#828282;\">Pronto(Pr\u00f3ximo): </span></p></body></html>", None))
-        self.label_ready_p.setText(QCoreApplication.translate("FifoSimulator", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:600; color:#828282;\">PY</span></p></body></html>", None))
+        self.label_in_exec.setText(QCoreApplication.translate("FifoSimulator", u"Em Execu\u00e7\u00e3o: ", None))
+        self.label_in_exec_p.setText(QCoreApplication.translate("FifoSimulator", u"PX", None))
+        self.label_ready.setText(QCoreApplication.translate("FifoSimulator", u"Pronto(Pr\u00f3ximo):", None))
+        self.label_ready_p.setText(QCoreApplication.translate("FifoSimulator", u"PY", None))
+        self.label_pid_0.setText(QCoreApplication.translate("FifoSimulator", u"PID", None))
+        self.label_pid_1.setText(QCoreApplication.translate("FifoSimulator", u"PID", None))
+        self.label_pid_2.setText(QCoreApplication.translate("FifoSimulator", u"PID", None))
+        self.label_pid_3.setText(QCoreApplication.translate("FifoSimulator", u"PID", None))
+        self.label_pid_4.setText(QCoreApplication.translate("FifoSimulator", u"PID", None))
+        self.label_pid_5.setText(QCoreApplication.translate("FifoSimulator", u"PID", None))
+        self.label_pid_6.setText(QCoreApplication.translate("FifoSimulator", u"PID", None))
         self.label_team.setText(QCoreApplication.translate("FifoSimulator", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:600; color:#555753;\">Team:</span></p><p><span style=\" font-size:12pt; font-weight:600; color:#555753;\">Ivo H. Trindade Silva</span></p><p><span style=\" font-size:12pt; font-weight:600; color:#555753;\">Lucas de Mendon\u00e7a Schneider</span></p><p><span style=\" font-size:12pt; font-weight:600; color:#555753;\">Jomilson Franklin Ciriaco</span></p></body></html>", None))
         self.group_box_cpu.setTitle(QCoreApplication.translate("FifoSimulator", u"CPU", None))
         self.lavel_cpu_time.setText(QCoreApplication.translate("FifoSimulator", u"Tempo", None))
         self.label_cpu_idle.setText(QCoreApplication.translate("FifoSimulator", u"Ocioso", None))
         self.label_cpu_busy.setText(QCoreApplication.translate("FifoSimulator", u"Ocupado", None))
         self.cpu_time_value.setText(QCoreApplication.translate("FifoSimulator", u"xxxx", None))
-        self.cpu_idel_value.setText(QCoreApplication.translate("FifoSimulator", u"xxxx", None))
-        self.cpu_basy_value.setText(QCoreApplication.translate("FifoSimulator", u"xxxx", None))
+        self.cpu_idle_value.setText(QCoreApplication.translate("FifoSimulator", u"xxxx", None))
+        self.cpu_busy_value.setText(QCoreApplication.translate("FifoSimulator", u"xxxx", None))
         self.group_box_wait.setTitle(QCoreApplication.translate("FifoSimulator", u"Espera", None))
         self.label_wait_avarage.setText(QCoreApplication.translate("FifoSimulator", u"M\u00e9dio", None))
         self.label_wait_min.setText(QCoreApplication.translate("FifoSimulator", u"Minimo", None))

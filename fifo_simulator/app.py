@@ -56,37 +56,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
             queue_process_frame[count].setStyleSheet(style_sheet)
             count += 1
 
-    def set_output(self, value: int) -> NoReturn:
-        """Método paara atualização do output dos processos.
-        Arguments: - value [int]
-        Return: NoReturn
-        """
-        images = [
-            "image: url(:/herryporco/img/harry-porco.png);",
-            "image: url(:/cafe/img/cafe.gif);",
-            "image: url(:/histograma/img/histograma.png);",
-            "image: url(:/msword/img/ms_word.gif);",
-            "image: url(:/musica/img/musica.jpg);",
-            "image: url(:/viralata/img/vira-lara-caramelo.jpg);",
-            "image: url(:/facebook/img/facebook.jpg);",
-            "image: url(:/img1/img/mobral.jpeg);",
-            "image: url(:/img3/img/instagram.jpeg);",
-            "image: url(:/img2/img/bozo.jpg);",
-            "image: url(:/odio/img/odio.jpeg);",
-            "image: url(:/scrock/img/scrockson.jpeg);",
-            "image: url(:/topson/img/topson.jpeg);",
-            "image: url(:/bozo2/img/bozo2.jpeg);",
-        ]
-        shuffle(images)
-        style_sheet = (
-            "QFrame {"
-            f"{images[value]}"
-            "background-repeat: no-repeat;"
-            "background-position: center;"
-            "}"
-        )
-        self.result_process.setStyleSheet(style_sheet)
-
     def progress_bar_value(self, value: List) -> NoReturn:
         """Método para atialização da barra de progresso.
         Arguments: - value [list]
@@ -110,12 +79,37 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
         """
         self.progress_bar_value([0, "136, 138, 133"])
         self.label_cpu_percentage.setText("")
-        self.result_process.setStyleSheet("")
-        queue_process_label = [self.label_p1, self.label_p2, self.label_p3]
-        queue_process_frame = [self.queue_p1, self.queue_p2, self.queue_p3]
-        for i in range(3):
-            queue_process_label[i].setText("")
-            queue_process_frame[i].setStyleSheet("")
+        list_bar_proc_queue = [
+            self.process_bar_f0,
+            self.process_bar_f1,
+            self.process_bar_f2,
+            self.process_bar_f3,
+            self.process_bar_f4,
+            self.process_bar_f5,
+            self.process_bar_f6,
+        ]
+        list_labels = [
+            self.label_ready_p,
+            self.label_in_exec_p,
+            self.cpu_time_value,
+            self.cpu_idle_value,
+            self.cpu_busy_value,
+            self.wait_max,
+            self.wait_mean,
+            self.wait_min,
+            self.label_pid_0,
+            self.label_pid_1,
+            self.label_pid_2,
+            self.label_pid_3,
+            self.label_pid_4,
+            self.label_pid_5,
+            self.label_pid_6,
+
+        ]
+        for process_bar_f in list_bar_proc_queue:
+            process_bar_f.setVisible(False)
+        for label in list_labels:
+            label.setText("")
 
 
 if __name__ == "__main__":

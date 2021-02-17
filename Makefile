@@ -1,6 +1,5 @@
 compile-ui:
 	pyside2-uic ui_fifo_simulator/fifo_simulator.ui -o fifo_simulator/ui_fifo_simulator.py
-	pyside2-rcc ui_fifo_simulator/resourses.qrc -o fifo_simulator/resourses_rc.py
 
 start-app:
 	python fifo_simulator/app.py

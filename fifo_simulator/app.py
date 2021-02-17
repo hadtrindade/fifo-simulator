@@ -1,5 +1,4 @@
 import sys
-from random import shuffle
 from typing import List, NoReturn, Tuple
 from PySide2 import QtWidgets
 from ui_fifo_simulator import Ui_FifoSimulator
@@ -26,10 +25,18 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
             self.worker = Worker(processing)
             self.worker.signal.list_process.connect(self.set_queue)
             self.worker.signal.progress_signal.connect(self.progress_bar_value)
+            self.worker.signal.progress_signal_process.connect(
+                self.process_bar_f0.setValue
+            )
+            self.worker.signal.progress_signal_process_run.connect(
+                self.label_in_exec_p.setText
+            )
+            self.worker.signal.progress_signal_process_ready.connect(
+                self.label_ready_p.setText
+            )
             self.worker.signal.progress_signal_percentage.connect(
                 self.label_cpu_percentage.setText
             )
-            self.worker.signal.result_output.connect(self.set_output)
             self.worker.start()
 
         else:
@@ -43,17 +50,43 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
         Arguments: - list_queue [tuple]
         Return: NoReturn
         """
-        queue_process_label = [self.label_p1, self.label_p2, self.label_p3]
-        queue_process_frame = [self.queue_p1, self.queue_p2, self.queue_p3]
+        queue_process_label = [
+            self.label_pid_0,
+            self.label_pid_1,
+            self.label_pid_2,
+            self.label_pid_3,
+            self.label_pid_4,
+            self.label_pid_5,
+            self.label_pid_6,
+        ]
+        queue_process_bars = [
+            self.process_bar_f0,
+            self.process_bar_f1,
+            self.process_bar_f2,
+            self.process_bar_f3,
+            self.process_bar_f4,
+            self.process_bar_f5,
+            self.process_bar_f6,
+        ]
         count = 0
-        for i in range(list_queue[0], list_queue[0] + 3):
+        for i in range(list_queue[0], list_queue[0] + 7):
             style_sheet = (
-                "QFrame {"
+                "QProgressBar {"
+                "color:  rgb(69, 69,69);"
+                "border: 0px solid;"
+                "border-radius: 5px;"
+                "border-style: none;"
+                "background-position: center;"
+                "text-align: center;"
                 f"background-color: rgb({list_queue[1][count][1]});"
                 "}"
+                "QProgressBar::chunk {"
+                "background-color: rgb(238, 238, 236);"
+                "}"
             )
-            queue_process_label[count].setText(f"P{str(i)}")
-            queue_process_frame[count].setStyleSheet(style_sheet)
+
+            queue_process_label[count].setText(f"PID{str(i)}")
+            queue_process_bars[count].setStyleSheet(style_sheet)
             count += 1
 
     def progress_bar_value(self, value: List) -> NoReturn:
@@ -104,10 +137,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
             self.label_pid_4,
             self.label_pid_5,
             self.label_pid_6,
-
         ]
+        style_sheet = """QProgressBar 
+                        {
+                            border: 0px solid;
+                            border-style: none;
+                            }
+                            """
         for process_bar_f in list_bar_proc_queue:
-            process_bar_f.setVisible(False)
+            process_bar_f.setStyleSheet(style_sheet)
+            process_bar_f.setValue(0)
         for label in list_labels:
             label.setText("")
 

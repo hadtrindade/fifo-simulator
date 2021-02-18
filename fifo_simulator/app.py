@@ -112,9 +112,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
             queue_process_bars[count].setGeometry(*geometry)
             count += 1
             geometry_x += 60
-        time_avarege = sum(self.process_time)/len(self.process_time)*1000
+        time_avarege = sum(self.process_time) / len(self.process_time) * 100
         self.wait_mean.setText(str(time_avarege))
-        self.wait_max.setText(str(sum(self.process_time)*1000))
+        self.wait_max.setText(str(sum(self.process_time) * 100))
 
     def set_clock(self, value):
         self.current_time = value
@@ -187,6 +187,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
             process_bar_f.setValue(0)
         for label in list_labels:
             label.setText("")
+        self.cpu_busy = None
+        self.current_time = None
+        self.process_time = []
 
 
 if __name__ == "__main__":

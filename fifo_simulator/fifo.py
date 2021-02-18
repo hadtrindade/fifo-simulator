@@ -53,6 +53,6 @@ def processing(
 def clock(*args, **kwargs) -> NoReturn:
     counter = 0
     while True:
-        sleep(0.001)
+        sleep(0.01)
         kwargs["clock_signal"].emit(counter)
         counter += 1

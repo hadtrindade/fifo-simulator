@@ -2,8 +2,9 @@ import sys
 from typing import List, NoReturn, Tuple
 from PySide2 import QtWidgets
 from ui_fifo_simulator import Ui_FifoSimulator
-from fifo import processing
+from fifo import processing, clock
 from worker import Worker
+from time import sleep
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
@@ -12,6 +13,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
         self.setupUi(self)
         self.start = False
         self.worker = None
+        self.cpu_busy = None
+        self.current_time = None
+        self.process_time = []
         self.button_start_stop.clicked.connect(lambda: self.start_process())
         self.init_app_fifo()
 
@@ -22,9 +26,17 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
         if not self.start:
             self.button_start_stop.setText("Stop")
             self.start = True
+
+            self.worker_clock = Worker(clock)
+            self.worker_clock.signal.clock_signal.connect(self.set_clock)
+            self.worker_clock.start()
+            sleep(0.1)
+
             self.worker = Worker(processing)
             self.worker.signal.list_process.connect(self.set_queue)
             self.worker.signal.progress_signal.connect(self.progress_bar_value)
+            self.worker.signal.clock_signal.connect(self.set_clock)
+            self.worker.signal.cpu_busy_signal.connect(self.set_idle_time)
             self.worker.signal.progress_signal_process.connect(
                 self.process_bar_f0.setValue
             )
@@ -40,6 +52,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
             self.worker.start()
 
         else:
+            self.worker_clock.terminate()
             self.worker.terminate()
             self.button_start_stop.setText("Start")
             self.start = False
@@ -71,6 +84,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
 
         count = 0
         geometry_x = 350
+        self.process_time.append(list_queue[0])
+        self.wait_min.setText(str(0))
         for i in range(list_queue[0], list_queue[0] + 7):
             style_sheet = (
                 "QProgressBar {"
@@ -86,7 +101,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
                 "background-color: rgb(238, 238, 236);"
                 "}"
             )
-
             queue_process_label[count].setText(f"PID{str(i)}")
             queue_process_bars[count].setStyleSheet(style_sheet)
             geometry = [
@@ -98,6 +112,20 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
             queue_process_bars[count].setGeometry(*geometry)
             count += 1
             geometry_x += 60
+        time_avarege = sum(self.process_time)/len(self.process_time)*1000
+        self.wait_mean.setText(str(time_avarege))
+        self.wait_max.setText(str(sum(self.process_time)*1000))
+
+    def set_clock(self, value):
+        self.current_time = value
+        self.cpu_time_value.setText(str(self.current_time))
+        if self.cpu_busy:
+            self.cpu_busy_value.setText(str(self.current_time - self.cpu_idle))
+
+    def set_idle_time(self, value):
+        self.cpu_idle_value.setText(str(self.current_time))
+        self.cpu_idle = self.current_time
+        self.cpu_busy = value
 
     def progress_bar_value(self, value: List) -> NoReturn:
         """Método para atialização da barra de progresso.

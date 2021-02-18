@@ -27,9 +27,13 @@ def processing(
     list_process: Callable,
     progress_signal_process_run: Callable,
     progress_signal_process_ready: Callable,
+    clock_signal: Callable,
+    cpu_busy_signal: Callable,
 ) -> NoReturn:
     """Função responsável pelo processamento e exibição de status do progresso."""
     count = 0
+    cpu_busy_signal.emit(True)
+    sleep(0.1)
     while True:
         list_process.emit((count, get_full_queue()))
         value = queue_fifo.get()
@@ -43,3 +47,12 @@ def processing(
                 str(round(i / value[0] * 100)) + "%"
             )
         count += 1
+        sleep(0.1)
+
+
+def clock(*args, **kwargs) -> NoReturn:
+    counter = 0
+    while True:
+        sleep(0.001)
+        kwargs["clock_signal"].emit(counter)
+        counter += 1

@@ -3,6 +3,8 @@ from PySide2.QtCore import QThread, QObject, Signal, Slot
 
 class SignalsToWorker(QObject):
     list_process = Signal(object)
+    clock_signal = Signal(object)
+    cpu_busy_signal = Signal(object)
     progress_signal = Signal(object)
     progress_signal_process = Signal(object)
     progress_signal_process_run = Signal(object)
@@ -32,6 +34,8 @@ class Worker(QThread):
             "progress_signal_percentage"
         ] = self.signal.progress_signal_percentage
         self.kwargs["list_process"] = self.signal.list_process
+        self.kwargs["clock_signal"] = self.signal.clock_signal
+        self.kwargs["cpu_busy_signal"] = self.signal.cpu_busy_signal
 
     @Slot()
     def stop(self):

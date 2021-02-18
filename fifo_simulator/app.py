@@ -68,7 +68,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
             self.process_bar_f5,
             self.process_bar_f6,
         ]
+
         count = 0
+        geometry_x = 350
         for i in range(list_queue[0], list_queue[0] + 7):
             style_sheet = (
                 "QProgressBar {"
@@ -87,7 +89,15 @@ class MainWindow(QtWidgets.QMainWindow, Ui_FifoSimulator):
 
             queue_process_label[count].setText(f"PID{str(i)}")
             queue_process_bars[count].setStyleSheet(style_sheet)
+            geometry = [
+                geometry_x,
+                (200 + (100 - (list_queue[1][count][0]) * 10)),
+                50,
+                ((list_queue[1][count][0]) * 10),
+            ]
+            queue_process_bars[count].setGeometry(*geometry)
             count += 1
+            geometry_x += 60
 
     def progress_bar_value(self, value: List) -> NoReturn:
         """Método para atialização da barra de progresso.
